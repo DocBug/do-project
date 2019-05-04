@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+    "do-swiper": "../../components/swiper/index"
+  }
+}
