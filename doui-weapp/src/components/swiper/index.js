@@ -1,20 +1,55 @@
 import DoComponent from "../common/baseComponent"
+import Utils from "../common/utils.js"
 
 DoComponent({
 
   properties: {
+    width: Number,
+    height: {
+      type: Number,
+      value: 150
+    },
+    // items, 每张图片
+    items: {
+      type: Array,
+      value: [],
+      observer() {
+        let that = this
+        let { adaptImageHeight, items, current, heightList } = this.data
+        if (adaptImageHeight) {
+          items.forEach((item, index) => {
+            wx.getImageInfo({
+              src: item,
+              success(data) {
+                let {width: originWidth, height: orightHeight} = data
+                Utils.getNodeField.bind(that)(`.do-swiper-image${index}`).then(({ width }) => {
+                  that.setData({
+                    [`heightList.${index}`]: Utils.getDynaticImageHeight(originWidth, orightHeight, width)
+                  })
+                  if (items.length === Object.keys(heightList).length) {
+                    that.setData({
+                      height: heightList[current]
+                    })
+                  }
+                })
+              }
+            })
+          })
+        }
+      }
+    },
     // 是否显示面板指示点
     indicatorDots:{
       type: Boolean,
       value: false
     },
     // 指示点颜色
-    indicator: {
+    indicatorColor: {
       type: String,
       value: 'rgba(0, 0, 0, .3)'
     },
     // 当前选中的指示点颜色
-    indicatorActive: {
+    indicatorActiveColor: {
       type: String,
       value: '#000000'
     },
@@ -25,12 +60,15 @@ DoComponent({
     },
     // 当前所在滑块的 index
     current: {
-      type: String,
-      value: 0
+      type: Number,
+      value: 0,
+      observer() {
+        console.log(this.data.current)
+      }
     },
     // 自动切换时间间隔
     interval: {
-      type: String,
+      type: Number,
       value: 5000
     },
     // 滑动动画时长
@@ -69,19 +107,43 @@ DoComponent({
       value: false
     },
     /*
-      指定 swiper 切换缓动动画类型
-      default	默认缓动函数
-      linear	线性动画
-      easeInCubic	缓入动画
-      easeOutCubic	缓出动画
-      easeInOutCubic	缓入缓出动画
+      指定 swiper 切换缓动动画类型: default	默认缓动函数 linear	线性动画
+      easeInCubic	缓入动画 easeOutCubic	缓出动画 easeInOutCubic	缓入缓出动画
     */
     easingFunction: {
       type: String,
       value: "default"
     },
+    // 图片自适应高度
+    adaptImageHeight: {
+      type: Boolean,
+      value: false
+    }
   },
 
+  observers: {
+  },
+
+  data: {
+    heightList: {}
+  },
+
+  methods: {
+    // 滑动事件
+    onChange(e) {
+      let { adaptImageHeight, heightList } = this.data
+      let { current } = e.detail
+      if (adaptImageHeight) {
+        this.setData({
+          height: heightList[current]
+        })
+      }
+      this.triggerEvent('change', e)
+    }
+  },
+
+  created() {
+  }
 })
 
 /*

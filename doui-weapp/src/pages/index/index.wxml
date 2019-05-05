@@ -1,1 +1,9 @@
-<do-swiper></do-swiper>
+<do-swiper
+  autoplay
+  indicator-dots
+  indicator-color="rgba(255, 55, 0, 1)"
+  items="{{ items }}"
+  height="250px"
+></do-swiper>
+
+<image id="testImg" mode="widthFix" src="http://localhost:3000/resource/images/2.jpg"></image>

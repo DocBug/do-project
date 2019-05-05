@@ -1,3 +1,32 @@
-<swiper>
-  <swiper-item><image src="" mode="widthFix"/></swiper-item>
+<wxs src="../common/utils.wxs" module="Utils" />
+
+<swiper
+  indicator-dots="{{ indicatorDots }}"
+  indicator-color="{{ indicatorColor }}"
+  indicator-active-color="{{ indicatorActiveColor }}"
+  autoplay="{{ autoplay }}"
+  current="{{ current }}"
+  interval="{{ interval }}"
+  duration="{{ duration }}"
+  circular="{{ circular }}"
+  vertical="{{ vertical }}"
+  previous-margin="{{ previousMargin }}"
+  next-margin="{{ nextMargin }}"
+  display-multiple-items="{{ displayMultipleItems }}"
+  skip-hidden-item-layout="{{ skipHiddenItemLayout }}"
+  easing-function="{{ easingFunction }}"
+  style="{{ Utils.unitTranslateHandler(width) }}; height: Utils.unitTranslateHandler(height)"
+  class=""
+  bindchange="onChange"
+>
+  <swiper-item
+    wx:for="{{ items }}"
+    wx:key="{{ index }}"
+  >
+    <image
+      class="do-swiper-image {{ 'do-swiper-image' + index }}"
+      src="{{ item }}"
+      mode="widthFix"
+    />
+  </swiper-item>
 </swiper>
