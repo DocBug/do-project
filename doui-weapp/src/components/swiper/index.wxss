@@ -1,4 +1,13 @@
 .do-swiper-image{
   width: 100%;
-  height: auto;
+  height: 100%;
+  box-sizing: border-box;
+}
+.do-swiper-image-type2{
+  padding: 24rpx 0;
+  transform: scale(.95);
+  transition: all .2s;
+}
+.current{
+  transform: scale(1.1);
 }

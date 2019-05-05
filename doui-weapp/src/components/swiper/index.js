@@ -41,6 +41,17 @@ DoComponent({
         }
       }
     },
+    type: {
+      type: Number,
+      observer(newVal) {
+        if (newVal) {
+          this.setData({
+            previousMargin: '40px',
+            nextMargin: '40px'
+          })
+        }
+      }
+    },
     // 是否显示面板指示点
     indicatorDots:{
       type: Boolean,
@@ -139,6 +150,7 @@ DoComponent({
       let { current } = e.detail
       if (adaptImageHeight) {
         this.setData({
+          current,
           height: heightList[current]
         })
       }

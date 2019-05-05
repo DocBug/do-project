@@ -11,6 +11,23 @@
   circular
   display-multiple-items="1"
   skip-hidden-item-layout="{{ false }}"
-  easing-function="easeInCubic"
+  easing-function="linear"
+>
+</do-swiper>
+
+<do-swiper
+  type="2"
+  items="{{ items }}"
+  adaptImageHeight
+  indicator-dots
+  indicator-color="rgba(255, 55, 0, 1)"
+  indicator-active-color="rgba(55, 55, 240, 1)"
+  current="0"
+  interval="2000"
+  duration="500"
+  circular
+  display-multiple-items="1"
+  skip-hidden-item-layout="{{ false }}"
+  easing-function="linear"
 >
 </do-swiper>

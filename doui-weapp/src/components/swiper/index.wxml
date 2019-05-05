@@ -1,5 +1,5 @@
 <wxs src="../common/utils.wxs" module="Utils" />
-{{ easingFunction }}
+
 <swiper
   indicator-dots="{{ indicatorDots }}"
   indicator-color="{{ indicatorColor }}"
@@ -16,16 +16,18 @@
   skip-hidden-item-layout="{{ skipHiddenItemLayout }}"
   easing-function="{{ easingFunction }}"
   style="width: {{ Utils.unitTranslateHandler(width) }}; height: {{ Utils.unitTranslateHandler(height) }};"
-  class=""
+  class="{{ type === 2 ? 'type2' : '' }}"
   bindchange="onChange"
 >
   <block wx:if="{{ !useslot }}">
-    <swiper-item wx:for="{{ items }}" wx:key="{{ index }}">
+    <swiper-item wx:for="{{ items }}" wx:key="{{ index }}" class="do-swiper-item">
       <image
-        class="do-swiper-image {{ 'do-swiper-image' + index }}"
+        class="do-swiper-image {{ 'do-swiper-image' + index }} {{ type ? 'do-swiper-image-type' + type : '' }} {{ type && current === index ? 'current' : '' }}"
+        style=""
         src="{{ item }}"
         mode="widthFix"
       />
+      
     </swiper-item>
   </block>
 
