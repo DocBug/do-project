@@ -1,5 +1,5 @@
 <wxs src="../common/utils.wxs" module="Utils" />
-
+{{ easingFunction }}
 <swiper
   indicator-dots="{{ indicatorDots }}"
   indicator-color="{{ indicatorColor }}"
@@ -10,23 +10,25 @@
   duration="{{ duration }}"
   circular="{{ circular }}"
   vertical="{{ vertical }}"
-  previous-margin="{{ previousMargin }}"
-  next-margin="{{ nextMargin }}"
+  previous-margin="{{ Utils.unitTranslateHandler(previousMargin) }}"
+  next-margin="{{ Utils.unitTranslateHandler(nextMargin) }}"
   display-multiple-items="{{ displayMultipleItems }}"
   skip-hidden-item-layout="{{ skipHiddenItemLayout }}"
   easing-function="{{ easingFunction }}"
-  style="{{ Utils.unitTranslateHandler(width) }}; height: Utils.unitTranslateHandler(height)"
+  style="width: {{ Utils.unitTranslateHandler(width) }}; height: {{ Utils.unitTranslateHandler(height) }};"
   class=""
   bindchange="onChange"
 >
-  <swiper-item
-    wx:for="{{ items }}"
-    wx:key="{{ index }}"
-  >
-    <image
-      class="do-swiper-image {{ 'do-swiper-image' + index }}"
-      src="{{ item }}"
-      mode="widthFix"
-    />
-  </swiper-item>
+  <block wx:if="{{ !useslot }}">
+    <swiper-item wx:for="{{ items }}" wx:key="{{ index }}">
+      <image
+        class="do-swiper-image {{ 'do-swiper-image' + index }}"
+        src="{{ item }}"
+        mode="widthFix"
+      />
+    </swiper-item>
+  </block>
+
+  <slot wx:else></slot>
+
 </swiper>

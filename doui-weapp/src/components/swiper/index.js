@@ -4,9 +4,12 @@ import Utils from "../common/utils.js"
 DoComponent({
 
   properties: {
-    width: Number,
+    width: {
+      type: [Number, String],
+      value: '100%'
+    },
     height: {
-      type: Number,
+      type: [Number, String],
       value: 150
     },
     // items, 每张图片
@@ -61,10 +64,7 @@ DoComponent({
     // 当前所在滑块的 index
     current: {
       type: Number,
-      value: 0,
-      observer() {
-        console.log(this.data.current)
-      }
+      value: 0
     },
     // 自动切换时间间隔
     interval: {
@@ -116,6 +116,10 @@ DoComponent({
     },
     // 图片自适应高度
     adaptImageHeight: {
+      type: Boolean,
+      value: false
+    },
+    useslot: {
       type: Boolean,
       value: false
     }

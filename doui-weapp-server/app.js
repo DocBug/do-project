@@ -1,9 +1,8 @@
-const http = require('http');
-const fs = require('fs');
+const http = require('http')
+const fs = require('fs')
 
 let server = http.createServer(function(req, res) {
     let url = req.url
-    console.log(url)
     if (url.endsWith('.png') || url.endsWith('.jpg')) {
         let rs = fs.createReadStream('.' + url)
         rs.pipe(res)
