@@ -17,6 +17,7 @@ class Utils {
 
     return new Promise(resolve => {
       this.createSelectorQuery().select(nodeName).fields(defaultFields, function (data) {
+        console.log('getData', Date.now())
         resolve(data)
       }).exec()
     })

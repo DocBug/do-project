@@ -10,7 +10,10 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "koa": "^2.0.0-alpha.8"
+    "koa": "^2.7.0",
+    "koa-better-body": "^3.0.4",
+    "koa-router": "^7.4.0",
+    "koa-static": "^5.0.0"
   },
   "devDependencies": {
     "nodemon": "^1.19.0"

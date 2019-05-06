@@ -19,24 +19,36 @@ DoComponent({
       observer() {
         let that = this
         let { adaptImageHeight, items, current, heightList } = this.data
-        if (adaptImageHeight) {
-          items.forEach((item, index) => {
-            wx.getImageInfo({
-              src: item,
-              success(data) {
-                let {width: originWidth, height: orightHeight} = data
-                Utils.getNodeField.bind(that)(`.do-swiper-image${index}`).then(({ width }) => {
-                  that.setData({
-                    [`heightList.${index}`]: Utils.getDynaticImageHeight(originWidth, orightHeight, width)
-                  })
-                  if (items.length === Object.keys(heightList).length) {
+        try{
+          if (adaptImageHeight) {
+            items.forEach((item, index) => { 
+              wx.getImageInfo({
+                src: item,
+                success(data) {
+                  console.log(`getImageInfo${index}:`, Date.now())
+                  let {width: originWidth, height: orightHeight} = data
+                  Utils.getNodeField.bind(that)(`.do-swiper-image${index}`).then(({ width }) => {
                     that.setData({
-                      height: heightList[current]
+                      [`heightList.${index}`]: Utils.getDynaticImageHeight(originWidth, orightHeight, width)
                     })
-                  }
-                })
-              }
+                    wx.showToast({
+                      title: JSON.stringify(heightList),
+                    })
+                    if (items.length === Object.keys(heightList).length) {
+                      that.setData({
+                        height: heightList[current]
+                      })
+                      
+                      console.log('endtime:', Date.now())
+                    }
+                  })
+                }
+              })
             })
+          }
+        } catch (e) {
+          wx.showToast({
+            title: '出错了。',
           })
         }
       }
