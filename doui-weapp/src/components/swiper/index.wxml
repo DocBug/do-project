@@ -1,5 +1,5 @@
 <wxs src="../common/utils.wxs" module="Utils" />
-{{ easingFunction }}
+
 <swiper
   indicator-dots="{{ indicatorDots }}"
   indicator-color="{{ indicatorColor }}"
