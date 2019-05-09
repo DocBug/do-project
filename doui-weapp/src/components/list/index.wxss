@@ -1,0 +1,30 @@
+@import "../common/common.wxss";
+.do-list-container{
+  display: flex;
+  flex-flow: row wrap;
+  background: #ddd;
+  padding: 20rpx 20rpx 0;
+  align-content: space-between;
+}
+.do-list-item{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20rpx;
+}
+.do-list-row-3{
+  flex-basis: 33.33%
+}
+.do-list-row-4{
+  flex-basis: 25%
+}
+.do-list-row-5{
+  flex-basis: 20%
+}
+.do-list-image{
+  width: 80%;
+  max-width: 100rpx;
+}
+.do-list-text{
+  line-height: 1.5;
+}

@@ -160,6 +160,7 @@ DoComponent({
     onChange(e) {
       let { adaptImageHeight, heightList } = this.data
       let { current } = e.detail
+      console.log(current)
       if (adaptImageHeight) {
         this.setData({
           current,

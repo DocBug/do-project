@@ -3,16 +3,9 @@
   @return String
 */
 var unitTranslateHandler = function (unit) {
-  // px/rpx
-  var rpxUnit = getRegExp('r?px$')
-  // 百分比
-  var percentUnit = getRegExp('%$')
-  // 数字，默认rpx
-  if (percentUnit.test(unit) || rpxUnit.test(unit)) {
-    return unit
-  } else if ('number' === typeof unit) {
+  if (getRegExp('^\d+$').test(unit)) 
     return unit + 'px'
-  }
+  return unit
 }
 
 module.exports = {

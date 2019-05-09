@@ -4,10 +4,14 @@
   box-sizing: border-box;
 }
 .do-swiper-image-type2{
-  padding: 24rpx 0;
-  transform: scale(.95);
+  margin: 0 20px;
   transition: all .2s;
 }
 .current{
   transform: scale(1.1);
+}
+.do-swiper-item{
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

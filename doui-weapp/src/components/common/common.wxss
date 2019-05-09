@@ -1,0 +1,30 @@
+image{
+  height: auto;
+}
+/* 7种字体规范 */
+.do-com-font1{
+  font-size: 80rpx;
+}
+.do-com-font2{
+  font-size: 40rpx;
+}
+.do-com-font3{
+  font-size: 36rpx;
+}
+.do-com-font4{
+  font-size: 34rpx;
+}
+.do-com-font5{
+  font-size: 28rpx;
+}
+.do-com-font6{
+  font-size: 26rpx;
+}
+.do-com-font7{
+  font-size: 22rpx;
+}
+/* 圆形 */
+.do-com-circle{
+  border-radius: 50%;
+}
+/* 20rpx 的标准间隔 */

@@ -1,0 +1,11 @@
+<view class="do-list-container root-class">
+  <view
+    class="do-list-item do-list-row-5"
+    wx:for="{{ list }}"
+    wx:key="{{ index }}"
+    bind:tap="onTap"
+  >
+    <image class="do-list-image do-com-circle" mode="widthFix" src="{{ item.url }}"/>
+    <text class="do-com-font6 do-list-text">{{ item.text }}</text>
+  </view>
+</view>

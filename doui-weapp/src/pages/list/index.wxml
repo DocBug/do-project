@@ -1,0 +1,4 @@
+<do-list
+  list="{{ list }}"
+  root-class="rootClass"
+></do-list>

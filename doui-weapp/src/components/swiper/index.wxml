@@ -15,7 +15,7 @@
   display-multiple-items="{{ displayMultipleItems }}"
   skip-hidden-item-layout="{{ skipHiddenItemLayout }}"
   easing-function="{{ easingFunction }}"
-  style="width: {{ Utils.unitTranslateHandler(width) }}; height: {{ Utils.unitTranslateHandler(height) }};"
+  style="width: {{ Utils.unitTranslateHandler(width) }}; height: {{ Utils.unitTranslateHandler(height) }}"
   class="{{ type === 2 ? 'type2' : '' }}"
   bindchange="onChange"
 >
@@ -27,10 +27,12 @@
         src="{{ item }}"
         mode="widthFix"
       />
-      
+      <view></view>
+      {{}}
     </swiper-item>
   </block>
 
   <slot wx:else></slot>
 
 </swiper>
+{{ Utils.unitTranslateHandler(width) }} || {{ height }}

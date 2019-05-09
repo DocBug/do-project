@@ -7,9 +7,7 @@ Page({
     items: ['../../static/images/1.jpg', '../../static/images/2.jpg', '../../static/images/3.jpg']
   },
   onLoad() {
-    console.log('starttime:', Date.now())
     let that = this
-<<<<<<< HEAD
     // wx.request({
     //   url: 'http://localhost:3000/api/swiperData',
     //   success(res) {
@@ -22,7 +20,6 @@ Page({
     //   }
     // })
 
-=======
     let items = [
       'https://img.bitzane.cn/images/1901/2019/05/sL3wK3GhHDwAlhDdaKh0lKadhSa0Vj.jpg',
       'https://img.bitzane.cn/images/1901/2019/05/tg7Od4YoTydVggw7gD2OOwGswT4fFo.jpg',
@@ -51,7 +48,6 @@ Page({
     //     console.log('endtime3:', Date.now() - starttime)
     //   }
     // })
->>>>>>> ca894a4f27f6137ca5f1eaa16505a856f15d4f66
   },
 
   onReady() {

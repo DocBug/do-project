@@ -1,3 +1,4 @@
+
 class Utils {
 
   static getDynaticImageHeight(originWidth, originHeight, showWidth) {
@@ -21,6 +22,24 @@ class Utils {
         resolve(data)
       }).exec()
     })
+  }
+
+  /* 对象转换成路由后面的数据 */
+  static obj2Hash(obj) {
+    if (!Utils.isObject(obj))
+      throw new TypeError('obj2Hash function need a object parameter, not null, array and so on')
+    let params = ''
+    Object.keys(obj).forEach(item => {
+      let value = obj[item] !== null && typeof obj[item] === 'object' ? JSON.stringify(obj[item]) : obj[item]
+      params = params + `${item}=${value}&`
+    })
+    
+    params = '/' + params
+    return params.slice(0, -1)
+  }
+  // 判断是否为对象
+  static isObject(obj) {
+    return typeof obj !== 'object' || obj === null || Array.isArray(obj) ? false : true
   }
 
 }

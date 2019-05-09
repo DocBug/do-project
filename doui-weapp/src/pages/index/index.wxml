@@ -1,3 +1,4 @@
+<!--
 <do-swiper
   items="{{ items }}"
   adaptImageHeight
@@ -14,11 +15,13 @@
   easing-function="linear"
 >
 </do-swiper>
+-->
 
 <do-swiper
+  width="500"
+  height="400"
   type="2"
   items="{{ items }}"
-  adaptImageHeight
   indicator-dots
   indicator-color="rgba(255, 55, 0, 1)"
   indicator-active-color="rgba(55, 55, 240, 1)"
@@ -28,11 +31,5 @@
   circular
   display-multiple-items="1"
   skip-hidden-item-layout="{{ false }}"
-  easing-function="linear"
->
+  easing-function="linear">
 </do-swiper>
-
-<view style="width: 100%; height: 200px; background: pink;">
-  <input type="text" style="opacity: 0; border: 1px solid black" hidden />
-  <view></view>
-</view>
